@@ -2,6 +2,7 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, MessageHandler, filters, \
     CallbackQueryHandler, CommandHandler, ContextTypes, ConversationHandler
 
+from Task.credentials import TelegramBot_TOKEN
 from credentials import ChatGPT_TOKEN
 from gpt import ChatGptService
 from util import load_message, load_prompt, send_text_buttons, send_text, \
@@ -470,7 +471,7 @@ async def exit_to_start(update, context):
 def main() -> None:
 
     # Создаём приложение телеграм бота.
-    app = ApplicationBuilder().token("8069115680:AAEJhGxyPRKUdy7Jpq2lLIKcCZDyX06oxj0").build()
+    app = ApplicationBuilder().token(TelegramBot_TOKEN).build()
 
     # Создаём объект-обработчик СonversationHandler с соответствующими статусами.
     conv_handler = ConversationHandler(
